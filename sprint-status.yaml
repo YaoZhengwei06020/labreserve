@@ -1,0 +1,257 @@
+# 状态按实际进展维护；技术验证与Story验收分别记录。
+schema_version: 1
+project: LabReserve
+updated_at: '2026-11-10'
+baseline_status: proposed
+team:
+  coordinator: 姚政伟
+  members:
+  - 姚政伟
+  - 郑焰
+  - 刘昊文
+  - 罗永煌
+  member_assignment_confirmation: pending
+target_users:
+  segment: 高校单个实验室的成员与设备管理员
+  contact_status: not-contacted
+  laboratory: null
+  contact_person: null
+workflow:
+  states:
+  - draft
+  - ready-for-dev
+  - in-progress
+  - review
+  - done
+  done_requires:
+  - acceptance evidence
+  - independent reviewer acceptance
+sprints:
+  sprint-1:
+    status: planned
+    points: 25
+    start_date: null
+    end_date: null
+  sprint-2:
+    status: planned
+    points: 23
+    start_date: null
+    end_date: null
+stories:
+  US-01:
+    title: 用户登录和退出
+    epic: E-01
+    sprint: sprint-1
+    points: 3
+    status: draft
+    owner: 郑焰
+    reviewer: 姚政伟
+    requirements:
+    - FR-01
+    card: docs/stories/US-01.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-02:
+    title: 角色权限控制
+    epic: E-01
+    sprint: sprint-1
+    points: 3
+    status: draft
+    owner: 郑焰
+    reviewer: 姚政伟
+    requirements:
+    - FR-02
+    card: docs/stories/US-02.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-03:
+    title: 当前用户信息
+    epic: E-01
+    sprint: sprint-2
+    points: 1
+    status: draft
+    owner: 郑焰
+    reviewer: 姚政伟
+    requirements:
+    - FR-03
+    card: docs/stories/US-03.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-04:
+    title: 查看设备列表与详情
+    epic: E-02
+    sprint: sprint-1
+    points: 3
+    status: draft
+    owner: 郑焰
+    reviewer: 姚政伟
+    requirements:
+    - FR-04
+    card: docs/stories/US-04.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-05:
+    title: 管理员新增和编辑设备
+    epic: E-02
+    sprint: sprint-1
+    points: 3
+    status: draft
+    owner: 郑焰
+    reviewer: 姚政伟
+    requirements:
+    - FR-05
+    card: docs/stories/US-05.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-06:
+    title: 启用与停用设备
+    epic: E-02
+    sprint: sprint-2
+    points: 3
+    status: draft
+    owner: 郑焰
+    reviewer: 姚政伟
+    requirements:
+    - FR-06
+    card: docs/stories/US-06.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-07:
+    title: 查看设备预约日程
+    epic: E-03
+    sprint: sprint-2
+    points: 3
+    status: draft
+    owner: 罗永煌
+    reviewer: 刘昊文
+    requirements:
+    - FR-07
+    card: docs/stories/US-07.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-08:
+    title: 创建合法预约
+    epic: E-03
+    sprint: sprint-1
+    points: 5
+    status: draft
+    owner: 刘昊文
+    reviewer: 罗永煌
+    requirements:
+    - FR-08
+    - FR-10
+    card: docs/stories/US-08.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-09:
+    title: 冲突检测与并发保护
+    epic: E-03
+    sprint: sprint-1
+    points: 8
+    status: draft
+    owner: 刘昊文
+    reviewer: 罗永煌
+    requirements:
+    - FR-09
+    - FR-10
+    card: docs/stories/US-09.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-10:
+    title: 管理员设置维护时段
+    epic: E-03
+    sprint: sprint-2
+    points: 5
+    status: draft
+    owner: 罗永煌
+    reviewer: 刘昊文
+    requirements:
+    - FR-14
+    card: docs/stories/US-10.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-11:
+    title: 查看个人预约
+    epic: E-04
+    sprint: sprint-2
+    points: 3
+    status: draft
+    owner: 罗永煌
+    reviewer: 刘昊文
+    requirements:
+    - FR-11
+    card: docs/stories/US-11.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-12:
+    title: 取消个人预约
+    epic: E-04
+    sprint: sprint-2
+    points: 3
+    status: draft
+    owner: 刘昊文
+    reviewer: 罗永煌
+    requirements:
+    - FR-12
+    card: docs/stories/US-12.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+  US-13:
+    title: 管理员查询与处理异常预约
+    epic: E-04
+    sprint: sprint-2
+    points: 5
+    status: draft
+    owner: 姚政伟
+    reviewer: 郑焰
+    requirements:
+    - FR-13
+    - FR-15
+    card: docs/stories/US-13.md
+    acceptance_evidence: []
+    review:
+      status: pending
+      approved_by: null
+technical_validations:
+  equipment-slot-spike:
+    status: verified
+    evidence:
+    - docs/verification.md
+    - docs/evidence/postgres-e2af34c359ba/tests.xml
+process_tasks:
+  PROC-01:
+    title: 建立冲刺跟踪、评审与课程材料入口
+    owner: 姚政伟
+    status: in-progress
+  PROC-02:
+    title: 配置BMAD核心模块并记录真实版本
+    owner: 姚政伟
+    status: pending
+experiment_a:
+  status: not-started
+  plan: docs/experiment-a/README.md
+  result: null

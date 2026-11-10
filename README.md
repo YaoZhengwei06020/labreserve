@@ -14,7 +14,9 @@
 - [业务规则一致性审查](docs/rule-review.md)、[当前进度](docs/project-state.md)
 - [技术验证报告](docs/verification.md)、[技术验证范围](docs/technical-spike.md)
 - [课程要求](docs/course-requirements.md)、[实验A计划](docs/experiment-a/README.md)
-- [决策日志](docs/decision-log.md)、[AI使用说明](docs/ai-usage.md)
+- [冲刺状态](sprint-status.yaml)、[独立Story卡](docs/stories/US-01.md)
+- [决策日志](decision-log.md)、[复盘](retrospective.md)、[AI使用说明](docs/ai-usage.md)
+- [团队安排](docs/team.md)、[基线评审](docs/reviews/baseline-review.md)
 
 ## 工程结构
 
@@ -29,6 +31,9 @@ tests/              规则、数据库约束及并发测试
 scripts/            项目基线检查与数据库验证入口
 .github/workflows/  自动检查配置
 docs/               项目规划、评审与验证材料
+sprint-status.yaml  Story负责人、状态、证据及冲刺计划
+decision-log.md     正式人机决策记录
+retrospective.md    度量、实验及复盘
 ```
 
 ## 开发环境
@@ -44,6 +49,7 @@ docker compose up -d db
 .\.venv\Scripts\python manage.py check
 .\.venv\Scripts\python -m pytest
 .\.venv\Scripts\python scripts/check_baseline.py
+.\.venv\Scripts\python scripts/check_project_process.py
 ```
 
 Django宿主进程从环境变量读取数据库参数，Compose从.env读取配置；参数变更时需同步设置POSTGRES_DB/USER/PASSWORD/HOST/PORT。示例密码只用于隔离开发环境，真实凭据不得提交。
@@ -57,3 +63,18 @@ Django宿主进程从环境变量读取数据库参数，Compose从.env读取配
 规则测试19项、PostgreSQL17.11隔离测试12项已通过；GitHub自动检查的Python3.12/3.13两组各31项测试通过。验证覆盖20独立连接连续20轮、预约维护互斥及事务回滚，详见验证报告。
 
 Sprint1：登录、权限、设备基础与预约闭环；Sprint2：日程、维护、个人预约、取消和管理员功能。30分钟/4小时/7天参数、时区及其他待定规则由团队评审后定稿。实验A独立开展并保留真实结果。
+
+## 团队与过程
+
+| 成员 | 当前执行分工 |
+| --- | --- |
+| 姚政伟 | 需求、评审、集成与交付协调 |
+| 郑焰 | 认证、权限、设备基础 |
+| 刘昊文 | 预约、并发控制、取消 |
+| 罗永煌 | 日程、维护、测试及实验组织 |
+
+成员确认与排期待完成，实际贡献由提交和评审记录体现。目标场景为高校单个实验室；具体实验室、联系人及真实试用尚待联系。
+
+当前过程结构可运行`python scripts/check_project_process.py`检查。最终材料就绪检查使用`--final`；当正式决策、Story验收或实验缺失时会明确失败，结构检查通过不等同作业完成。
+
+AI辅助工具：Codex Work。本阶段模型标识为`gpt-6.1-sol`；此前规划阶段的模型版本待核实。使用范围、证据和工具流程状态见AI使用说明，不把候选方案记为团队已批准结论。
