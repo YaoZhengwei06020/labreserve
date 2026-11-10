@@ -1,7 +1,7 @@
 # BMAD development_status与项目Story元数据同源；draft对应未就绪的backlog。
 schema_version: 1
 project: LabReserve
-updated_at: '2026-11-10'
+updated_at: '2026-11-11'
 baseline_status: proposed
 team:
   coordinator: 姚政伟
@@ -268,12 +268,19 @@ process_tasks:
     status: done
     evidence:
     - docs/evidence/bmad-setup.json
+  PROC-03:
+    title: 建立分阶段提交、独立复核及保留过程历史的协作约定
+    owner: 姚政伟
+    status: review
+    evidence:
+    - docs/collaboration.md
+    - .github/pull_request_template.md
 experiment_a:
   status: not-started
   plan: docs/experiment-a/README.md
   result: null
 generated: 11-10-2026 22:31
-last_updated: 11-10-2026 22:45
+last_updated: 11-11-2026 01:02
 project_key: LabReserve
 tracking_system: file-system
 story_location: docs/stories

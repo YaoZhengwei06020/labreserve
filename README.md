@@ -17,6 +17,7 @@
 - [冲刺状态](sprint-status.yaml)、[13张独立Story卡](docs/stories/README.md)
 - [决策日志](decision-log.md)、[复盘](retrospective.md)、[AI使用说明](docs/ai-usage.md)
 - [团队安排](docs/team.md)、[基线评审](docs/reviews/baseline-review.md)
+- [协作与分阶段提交](docs/collaboration.md)
 - [BMAD工具配置与验证](docs/bmad-setup.md)、[实施就绪检查](docs/reviews/implementation-readiness.md)
 
 ## 工程结构
