@@ -1,0 +1,11 @@
+{
+  "run_id": "52c7254ecf6e",
+  "started_at": "2026-11-10T18:50:09.184968+08:00",
+  "stage": "pytest",
+  "status": "FAILED",
+  "python": "3.13.9",
+  "test_database": "test_labreserve_spike_52c7254ecf6e",
+  "server_version": 170011,
+  "exit_code": 1,
+  "finished_at": "2026-11-10T18:50:24.644164+08:00"
+}

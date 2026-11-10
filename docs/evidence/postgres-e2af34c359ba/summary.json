@@ -1,0 +1,11 @@
+{
+  "run_id": "e2af34c359ba",
+  "started_at": "2026-11-10T18:51:32.526734+08:00",
+  "stage": "pytest",
+  "status": "PASSED",
+  "python": "3.13.9",
+  "test_database": "test_labreserve_spike_e2af34c359ba",
+  "server_version": 170011,
+  "exit_code": 0,
+  "finished_at": "2026-11-10T18:51:47.287872+08:00"
+}

@@ -1,0 +1,46 @@
+{
+  "instances": [
+    {
+      "instance": "labreserve-spike-719d29e5002a",
+      "cluster": "cluster-8c6f0f54996f",
+      "ready": true,
+      "shutdown": true,
+      "pid_file_exists": false,
+      "lifecycle_log_excerpt": [
+        "2026-11-10 18:51:32.063 CST [36064] LOG:  starting PostgreSQL 17.11 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit",
+        "2026-11-10 18:51:32.064 CST [36064] LOG:  listening on IPv4 address \"127.0.0.1\", port 51155",
+        "2026-11-10 18:51:32.164 CST [36064] LOG:  database system is ready to accept connections",
+        "2026-11-10 18:51:47.343 CST [36064] LOG:  received fast shutdown request",
+        "2026-11-10 18:51:47.379 CST [36064] LOG:  database system is shut down"
+      ]
+    },
+    {
+      "instance": "labreserve-spike-b71acd134485",
+      "cluster": "cluster-3fcf1eabd5fd",
+      "ready": true,
+      "shutdown": true,
+      "pid_file_exists": false,
+      "lifecycle_log_excerpt": [
+        "2026-11-10 18:45:36.697 CST [35328] LOG:  starting PostgreSQL 17.11 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit",
+        "2026-11-10 18:45:36.698 CST [35328] LOG:  listening on IPv4 address \"127.0.0.1\", port 59732",
+        "2026-11-10 18:45:36.799 CST [35328] LOG:  database system is ready to accept connections",
+        "2026-11-10 18:47:42.454 CST [35328] LOG:  received fast shutdown request",
+        "2026-11-10 18:47:42.543 CST [35328] LOG:  database system is shut down"
+      ]
+    },
+    {
+      "instance": "labreserve-spike-cde6ae32caa0",
+      "cluster": "cluster-1c7a4cf45bb8",
+      "ready": true,
+      "shutdown": true,
+      "pid_file_exists": false,
+      "lifecycle_log_excerpt": [
+        "2026-11-10 18:50:08.698 CST [3920] LOG:  starting PostgreSQL 17.11 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit",
+        "2026-11-10 18:50:08.699 CST [3920] LOG:  listening on IPv4 address \"127.0.0.1\", port 61790",
+        "2026-11-10 18:50:08.799 CST [3920] LOG:  database system is ready to accept connections",
+        "2026-11-10 18:50:24.697 CST [3920] LOG:  received fast shutdown request",
+        "2026-11-10 18:50:24.736 CST [3920] LOG:  database system is shut down"
+      ]
+    }
+  ]
+}

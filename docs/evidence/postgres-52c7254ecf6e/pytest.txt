@@ -1,0 +1,87 @@
+.........F
+================================== FAILURES ===================================
+__________________________ test_direct_database_race __________________________
+..\.venv\Lib\site-packages\django\db\backends\utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\psycopg\cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.DeadlockDetected: deadlock detected
+E   DETAIL:  Process 29592 waits for ShareLock on transaction 1422; blocked by process 14512.
+E   Process 14512 waits for ShareLock on transaction 1423; blocked by process 29592.
+E   HINT:  See server log for query details.
+E   CONTEXT:  while checking exclusion constraint on tuple (0,1) in relation "booking_equipmentslot"
+
+The above exception was the direct cause of the following exception:
+tests\test_postgres.py:183: in test_direct_database_race
+    race(data, ["RESERVATION", "MAINTENANCE"], direct=True)
+tests\test_postgres.py:163: in race
+    results = list(executor.map(worker, kinds))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:619: in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:317: in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+..\..\..\..\miniconda3\Lib\concurrent\futures\thread.py:59: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_postgres.py:149: in worker
+    EquipmentSlot.objects.create(equipment_id=equipment.pk, kind=kind, user=actor if kind == "RESERVATION" else None, created_by=actor, start_time=start, end_time=start + timedelta(hours=1))
+..\.venv\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\models\query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+..\.venv\Lib\site-packages\django\db\models\base.py:902: in save
+    self.save_base(
+..\.venv\Lib\site-packages\django\db\models\base.py:1008: in save_base
+    updated = self._save_table(
+..\.venv\Lib\site-packages\django\db\models\base.py:1169: in _save_table
+    results = self._do_insert(
+..\.venv\Lib\site-packages\django\db\models\base.py:1210: in _do_insert
+    return manager._insert(
+..\.venv\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\models\query.py:1873: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\models\sql\compiler.py:1882: in execute_sql
+    cursor.execute(sql, params)
+..\.venv\Lib\site-packages\django\db\backends\utils.py:79: in execute
+    return self._execute_with_wrappers(
+..\.venv\Lib\site-packages\django\db\backends\utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\backends\utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+..\.venv\Lib\site-packages\django\db\backends\utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\psycopg\cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   django.db.utils.OperationalError: deadlock detected
+E   DETAIL:  Process 29592 waits for ShareLock on transaction 1422; blocked by process 14512.
+E   Process 14512 waits for ShareLock on transaction 1423; blocked by process 29592.
+E   HINT:  See server log for query details.
+E   CONTEXT:  while checking exclusion constraint on tuple (0,1) in relation "booking_equipmentslot"
+============================== warnings summary ===============================
+tests/test_postgres.py::test_nfr01_20_connections_20_rounds
+  tests\test_postgres.py:170: PytestWarning: record_property is incompatible with junit_family 'xunit2' (use 'legacy' or 'xunit1')
+    def test_nfr01_20_connections_20_rounds(data, record_property):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_postgres.py::test_direct_database_race - django.db.utils.Op...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 9 passed, 19 deselected, 1 warning in 14.10s

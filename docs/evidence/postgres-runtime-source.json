@@ -1,0 +1,9 @@
+{
+  "provider": "zonkyio/embedded-postgres-binaries (testing only)",
+  "project": "https://github.com/zonkyio/embedded-postgres-binaries",
+  "url": "https://repo.maven.apache.org/maven2/io/zonky/test/postgres/embedded-postgres-binaries-windows-amd64/17.11.0/embedded-postgres-binaries-windows-amd64-17.11.0.jar",
+  "bytes": 23812556,
+  "sha256": "98040fae18dd9633ff95932125b0cecf0a45a1a9312e216e2a33ad03a31d4251",
+  "published_sha1_verified": "bf520f80e59f1f0d1cf2447991208815742445aa",
+  "version_reported_by_binary": "PostgreSQL 17.11"
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="10" time="13.978" timestamp="2026-11-10T18:50:10.442945+08:00"><testcase classname="tests.test_postgres" name="test_database_constraint_and_adjacency" time="0.894" /><testcase classname="tests.test_postgres" name="test_zero_duration_rejected_by_database" time="0.183" /><testcase classname="tests.test_postgres" name="test_maintenance_conflict_both_directions" time="0.211" /><testcase classname="tests.test_postgres" name="test_cancellation_audit_and_maintenance_no_restore" time="0.238" /><testcase classname="tests.test_postgres" name="test_disable_preserves_slots_and_rejects_all_new_slots" time="0.254" /><testcase classname="tests.test_postgres" name="test_staff_flag_is_not_business_admin" time="0.203" /><testcase classname="tests.test_postgres" name="test_audit_failure_rolls_back_create_and_cancel" time="0.221" /><testcase classname="tests.test_postgres" name="test_nfr01_20_connections_20_rounds" time="9.023"><properties><property name="round_01" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_02" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_03" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_04" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_05" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_06" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_07" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_08" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_09" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_10" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_11" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_12" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_13" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_14" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_15" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_16" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_17" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_18" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_19" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /><property name="round_20" value="20 distinct backend PIDs; 1 success; 19 conflicts; 1 ACTIVE slot" /></properties></testcase><testcase classname="tests.test_postgres" name="test_booking_maintenance_race" time="0.853" /><testcase classname="tests.test_postgres" name="test_direct_database_race" time="1.495"><failure message="django.db.utils.OperationalError: deadlock detected&#10;DETAIL:  Process 29592 waits for ShareLock on transaction 1422; blocked by process 14512.&#10;Process 14512 waits for ShareLock on transaction 1423; blocked by process 29592.&#10;HINT:  See server log for query details.&#10;CONTEXT:  while checking exclusion constraint on tuple (0,1) in relation &quot;booking_equipmentslot&quot;">..\.venv\Lib\site-packages\django\db\backends\utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\psycopg\cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   psycopg.errors.DeadlockDetected: deadlock detected
+E   DETAIL:  Process 29592 waits for ShareLock on transaction 1422; blocked by process 14512.
+E   Process 14512 waits for ShareLock on transaction 1423; blocked by process 29592.
+E   HINT:  See server log for query details.
+E   CONTEXT:  while checking exclusion constraint on tuple (0,1) in relation "booking_equipmentslot"
+
+The above exception was the direct cause of the following exception:
+tests\test_postgres.py:183: in test_direct_database_race
+    race(data, ["RESERVATION", "MAINTENANCE"], direct=True)
+tests\test_postgres.py:163: in race
+    results = list(executor.map(worker, kinds))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:619: in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:317: in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\..\miniconda3\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+..\..\..\..\miniconda3\Lib\concurrent\futures\thread.py:59: in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_postgres.py:149: in worker
+    EquipmentSlot.objects.create(equipment_id=equipment.pk, kind=kind, user=actor if kind == "RESERVATION" else None, created_by=actor, start_time=start, end_time=start + timedelta(hours=1))
+..\.venv\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\models\query.py:665: in create
+    obj.save(force_insert=True, using=self.db)
+..\.venv\Lib\site-packages\django\db\models\base.py:902: in save
+    self.save_base(
+..\.venv\Lib\site-packages\django\db\models\base.py:1008: in save_base
+    updated = self._save_table(
+..\.venv\Lib\site-packages\django\db\models\base.py:1169: in _save_table
+    results = self._do_insert(
+..\.venv\Lib\site-packages\django\db\models\base.py:1210: in _do_insert
+    return manager._insert(
+..\.venv\Lib\site-packages\django\db\models\manager.py:87: in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\models\query.py:1873: in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\models\sql\compiler.py:1882: in execute_sql
+    cursor.execute(sql, params)
+..\.venv\Lib\site-packages\django\db\backends\utils.py:79: in execute
+    return self._execute_with_wrappers(
+..\.venv\Lib\site-packages\django\db\backends\utils.py:92: in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\backends\utils.py:100: in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\django\db\utils.py:91: in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+..\.venv\Lib\site-packages\django\db\backends\utils.py:105: in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\.venv\Lib\site-packages\psycopg\cursor.py:117: in execute
+    raise ex.with_traceback(None)
+E   django.db.utils.OperationalError: deadlock detected
+E   DETAIL:  Process 29592 waits for ShareLock on transaction 1422; blocked by process 14512.
+E   Process 14512 waits for ShareLock on transaction 1423; blocked by process 29592.
+E   HINT:  See server log for query details.
+E   CONTEXT:  while checking exclusion constraint on tuple (0,1) in relation "booking_equipmentslot"</failure></testcase></testsuite></testsuites>
