@@ -34,3 +34,11 @@
 ## 适用边界
 
 结果证明服务层技术方案在所列环境可运行，不代表HTTP页面、性能、重启恢复或真人可用性验收。Compose应用完整部署、实验A及Story端到端验收仍待完成。公开报告仅移除主机名元数据，测试名称、状态、时间、轮次属性与失败正文保持不变。
+
+## 过程结构与工具配置验证
+
+新增6项过程完整性测试通过，覆盖未给验收证据或复核结论即标done、技术spike替代Story验收、未知负责人、自我复核、漏跟踪Story、空决策标题和待填写验证字段等情况。[测试报告](evidence/process-tests.xml)与[检查摘要](evidence/process-structure.json)保留实际结果。
+
+BMAD core/bmm均为6.12.1，配置29个Codex入口；实际执行配置解析、sprint_plan validate与status，官方格式校验valid=true，13条Story均为backlog。版本、运行器与原始校验JSON见[工具证据](evidence/bmad-setup.json)。
+
+项目结构检查通过；最终材料检查按预期返回未就绪，原因包括正式决策0/15、否决或实质修改0/5、基线评审、真实使用者、Story验收和实验A未完成。安装成功、模板建立或自动校验通过均不记为这些工作的完成证据。

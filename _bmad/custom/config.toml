@@ -1,0 +1,11 @@
+[core]
+user_name = "LabReserve"
+communication_language = "Chinese"
+document_output_language = "Chinese"
+project_name = "LabReserve"
+output_folder = "_bmad-output"
+
+[modules.bmm]
+planning_artifacts = "docs"
+implementation_artifacts = "."
+project_knowledge = "docs"

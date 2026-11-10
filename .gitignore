@@ -19,3 +19,8 @@ docs/source-manifest.json
 docs/publication.md
 docs/source-and-course.md
 docs/evidence/github-ci.json
+.agents/
+_bmad/*
+!_bmad/custom/
+_bmad/custom/*
+!_bmad/custom/config.toml

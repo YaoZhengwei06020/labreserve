@@ -36,7 +36,7 @@ for i in range(1,16):
 for i in range(1,14):
     expect(f"US-{i:02}" in matrix, f"US-{i:02} traceability")
 for path in root.rglob("*.md"):
-    if any(p in {".git", ".venv"} for p in path.parts):
+    if any(p in {".git", ".venv", ".agents", "_bmad", "node_modules"} for p in path.parts):
         continue
     for target in re.findall(r"\]\(([^)]+)\)", path.read_text(encoding="utf-8")):
         if "://" in target or target.startswith("#"):

@@ -18,4 +18,6 @@
 
 过程材料已建立：根目录sprint-status.yaml、decision-log.md、retrospective.md，以及13张独立Story卡。四位成员与执行分工见docs/team.md；成员确认、具体使用者、正式评审、15条决策及实验A结果仍待完成。Story均为draft，已有技术验证独立记录。
 
+BMAD core和bmm 6.12.1、Codex29个技能入口已配置；官方配置解析和冲刺格式校验通过，原始校验结果见docs/evidence/bmad-setup.json。过程完整性测试6项通过；PROC-01进入review，PROC-02配置任务完成。这些过程任务状态不改变13条Story的draft/backlog状态。
+
 两个Sprint暂按25/23 SP安排，总48 SP为AI辅助初估，需团队重估；维护取消扩充到US-10后也需复核估点。候选规则与技术验证通过不等于团队批准，尚未记录正式评审结论。

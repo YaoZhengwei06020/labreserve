@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-11-10T22:45:32.637829+08:00",
+  "baseline_check": {
+    "exit_code": 0,
+    "output": "PASS: 4 Epic / 13 Story / 15 FR / 6 NFR / 7 PROPOSED ADR / 12 RULE; 25+23=48 SP; coverage; Markdown links"
+  },
+  "process_check": {
+    "exit_code": 0,
+    "output": "PASS: process structure, 13 Story cards, owners/reviewers, states and evidence guards\nPENDING: Formal decision records: 0/15\nPENDING: Rejected/substantively modified records: 0/5\nPENDING: Formal baseline review remains pending\nPENDING: Story acceptance remains incomplete\nPENDING: Actual user/laboratory confirmation remains pending\nPENDING: Experiment A remains incomplete"
+  },
+  "process_tests": {
+    "exit_code": 0,
+    "summary": "......                                                                   [100%]\n6 passed in 0.33s"
+  },
+  "final_submission_ready": false,
+  "final_readiness_check": {
+    "exit_code": 1,
+    "pending": [
+      "Formal decision records: 0/15",
+      "Rejected/substantively modified records: 0/5",
+      "Formal baseline review remains pending",
+      "Story acceptance remains incomplete",
+      "Actual user/laboratory confirmation remains pending",
+      "Experiment A remains incomplete"
+    ]
+  },
+  "scope": "structure and tracking integrity; templates and missing reviews are not counted as completed coursework"
+}

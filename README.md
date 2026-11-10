@@ -14,9 +14,10 @@
 - [业务规则一致性审查](docs/rule-review.md)、[当前进度](docs/project-state.md)
 - [技术验证报告](docs/verification.md)、[技术验证范围](docs/technical-spike.md)
 - [课程要求](docs/course-requirements.md)、[实验A计划](docs/experiment-a/README.md)
-- [冲刺状态](sprint-status.yaml)、[独立Story卡](docs/stories/US-01.md)
+- [冲刺状态](sprint-status.yaml)、[13张独立Story卡](docs/stories/README.md)
 - [决策日志](decision-log.md)、[复盘](retrospective.md)、[AI使用说明](docs/ai-usage.md)
 - [团队安排](docs/team.md)、[基线评审](docs/reviews/baseline-review.md)
+- [BMAD工具配置与验证](docs/bmad-setup.md)、[实施就绪检查](docs/reviews/implementation-readiness.md)
 
 ## 工程结构
 
@@ -60,7 +61,7 @@ Django宿主进程从环境变量读取数据库参数，Compose从.env读取配
 
 ## 验证与实施计划
 
-规则测试19项、PostgreSQL17.11隔离测试12项已通过；GitHub自动检查的Python3.12/3.13两组各31项测试通过。验证覆盖20独立连接连续20轮、预约维护互斥及事务回滚，详见验证报告。
+已有技术基线的规则测试19项、PostgreSQL17.11隔离测试12项已通过，前次GitHub自动检查的Python3.12/3.13两组各31项测试通过。新增6项过程完整性测试也已通过；当前分支的完整运行结果见自动检查页面。验证覆盖20独立连接连续20轮、预约维护互斥及事务回滚，详见验证报告。
 
 Sprint1：登录、权限、设备基础与预约闭环；Sprint2：日程、维护、个人预约、取消和管理员功能。30分钟/4小时/7天参数、时区及其他待定规则由团队评审后定稿。实验A独立开展并保留真实结果。
 
