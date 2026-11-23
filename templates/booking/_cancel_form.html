@@ -1,0 +1,11 @@
+{% if slot.kind == "RESERVATION" and slot.status == "ACTIVE" and slot.user_id == user.pk %}
+<form method="post"
+      action="{% url 'booking:cancel-reservation' slot_id=slot.pk %}"
+      class="mt-4 border-top pt-4"
+      onsubmit="return confirm('确认取消该预约吗？取消后时段将释放给其他成员。');">
+  {% csrf_token %}
+  <h2 class="h5">取消预约</h2>
+  <p class="text-body-secondary mb-3">仅尚未开始的预约可以取消。取消后记录仍会保留。</p>
+  <button type="submit" class="btn btn-outline-danger">取消该预约</button>
+</form>
+{% endif %}
