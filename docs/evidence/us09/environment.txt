@@ -1,0 +1,22 @@
+LabReserve US-09 independent acceptance environment
+
+Actual date/time: 2026-11-24T10:54:35.260415+08:00
+Working directory: E:\project\labreserve\.worktrees\integration
+Branch: feat/integration-reservation-flow
+HEAD: a195203048cd2741038ab473ca3b312bc17b1379
+Expected commit: a195203 (matches HEAD)
+Git status command: git status --short --branch
+Git status output: ## feat/integration-reservation-flow
+Workspace status before evidence generation: clean
+
+OS: Windows-11-10.0.26200-SP0
+OS version: 10.0.26200
+Python: 3.12.14 (main, Sep  1 2026, 14:17:39) [MSC v.1944 64 bit (AMD64)]
+Python executable: E:\project\labreserve\.venv\Scripts\python.exe
+Django: 5.2.19
+Database backend: django.db.backends.postgresql
+PostgreSQL: PostgreSQL 17.11 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit
+PostgreSQL server_version: 17.11
+Database host: localhost
+Database port (environment and server): 55432
+POSTGRES_PORT: 55432
