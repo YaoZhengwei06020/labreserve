@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ equipment.code }} · LabReserve{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h2 mb-0">{{ equipment.name }}</h1>
+    <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary" href="{% url 'equipment:list' %}">返回列表</a>
+        {% if can_manage %}<a class="btn btn-primary" href="{% url 'equipment:edit' code=equipment.code %}">编辑设备</a>{% endif %}
+    </div>
+</div>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">设备编号</dt>
+            <dd class="col-sm-9">{{ equipment.code }}</dd>
+            <dt class="col-sm-3">设备名称</dt>
+            <dd class="col-sm-9">{{ equipment.name }}</dd>
+            <dt class="col-sm-3">设备描述</dt>
+            <dd class="col-sm-9 text-break">{{ equipment.description|default:"—"|linebreaksbr }}</dd>
+            <dt class="col-sm-3">设备位置</dt>
+            <dd class="col-sm-9">{{ equipment.location|default:"—" }}</dd>
+            <dt class="col-sm-3">设备状态</dt>
+            <dd class="col-sm-9 mb-0">
+                <span class="badge {% if equipment.status == 'AVAILABLE' %}text-bg-success{% else %}text-bg-secondary{% endif %}">
+                    {{ equipment.get_status_display }}
+                </span>
+            </dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}
