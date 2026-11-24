@@ -9,7 +9,13 @@ from apps.accounts.policy import is_admin, require_actor
 from apps.audit.models import OperationLog
 from apps.equipment.models import Equipment
 from .models import EquipmentSlot
-from .policy import RuleViolation, SlotConflict, validate_interval, validate_cancellation
+from .policy import (
+    RuleViolation,
+    SlotConflict,
+    validate_cancellation,
+    validate_interval,
+    validate_reservation_interval,
+)
 
 
 def create_slot(*, actor, equipment_id, kind, start, end, reason=""):
@@ -21,7 +27,10 @@ def create_slot(*, actor, equipment_id, kind, start, end, reason=""):
     try:
         with transaction.atomic():
             equipment = Equipment.objects.select_for_update().get(pk=equipment_id)
-            validate_interval(start, end, timezone.now())
+            if kind == EquipmentSlot.Kind.RESERVATION:
+                validate_reservation_interval(start, end, timezone.now())
+            else:
+                validate_interval(start, end, timezone.now())
             if equipment.status != Equipment.Status.AVAILABLE:
                 raise RuleViolation("设备已停用")
             # Friendly early error; the exclusion constraint also protects direct writes.
