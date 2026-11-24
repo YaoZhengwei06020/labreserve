@@ -1,0 +1,26 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+django: version: 5.2.19, settings: config.settings (from ini)
+rootdir: E:\project\labreserve\.worktrees\integration
+configfile: pytest.ini
+testpaths: tests
+plugins: django-4.14.0
+collected 146 items
+
+tests\test_auth_web.py ...                                               [  2%]
+tests\test_cancellation_acceptance.py ........                           [  7%]
+tests\test_cancellation_web.py ...........                               [ 15%]
+tests\test_equipment_web.py .................                            [ 26%]
+tests\test_integration_web.py ....                                       [ 29%]
+tests\test_reservation_rules.py ......                                   [ 33%]
+tests\test_reservation_web.py ..............                             [ 43%]
+tests\test_postgres.py ............                                      [ 51%]
+tests\test_us09_http_independent.py ............                         [ 59%]
+tests\test_us09_independent.py ...................                       [ 72%]
+tests\test_auth_web.py ...                                               [ 74%]
+tests\test_policy.py ...................                                 [ 87%]
+tests\test_process.py ......                                             [ 91%]
+tests\test_reservation_rules.py ............                             [100%]
+
+- generated xml file: E:\project\labreserve\.worktrees\integration\docs\evidence\integration\tests.xml -
+======================= 146 passed in 68.45s (0:01:08) ========================

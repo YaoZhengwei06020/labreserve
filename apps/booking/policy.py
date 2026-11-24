@@ -1,4 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timedelta
+
+from django.conf import settings
 from django.utils import timezone
 
 
@@ -17,6 +19,27 @@ def validate_interval(start, end, now):
         raise RuleViolation("开始时间必须早于结束时间")
     if start <= now:
         raise RuleViolation("新占用必须在未来开始")
+
+
+def reservation_rule_limits():
+    """Return PROPOSED reservation limits; these values are not team-approved."""
+    return {
+        "min_minutes": getattr(settings, "RESERVATION_MIN_MINUTES", 30),
+        "max_minutes": getattr(settings, "RESERVATION_MAX_MINUTES", 240),
+        "advance_days": getattr(settings, "RESERVATION_ADVANCE_DAYS", 7),
+    }
+
+
+def validate_reservation_interval(start, end, now):
+    validate_interval(start, end, now)
+    limits = reservation_rule_limits()
+    duration = end - start
+    if duration < timedelta(minutes=limits["min_minutes"]):
+        raise RuleViolation(f"预约时长不能少于 {limits['min_minutes']} 分钟")
+    if duration > timedelta(minutes=limits["max_minutes"]):
+        raise RuleViolation(f"预约时长不能超过 {limits['max_minutes']} 分钟")
+    if start > now + timedelta(days=limits["advance_days"]):
+        raise RuleViolation(f"预约最多只能提前 {limits['advance_days']} 天")
 
 
 def validate_cancellation(*, is_admin, is_owner, kind, status, start, now, reason):

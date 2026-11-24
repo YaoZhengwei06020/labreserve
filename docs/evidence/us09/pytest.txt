@@ -1,0 +1,14 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.2.0, pluggy-1.7.0
+django: version: 5.2.19, settings: config.settings (from ini)
+rootdir: E:\project\labreserve\.worktrees\integration
+configfile: pytest.ini
+plugins: django-4.14.0
+collected 35 items
+
+tests\test_integration_web.py ....                                       [ 11%]
+tests\test_us09_http_independent.py ............                         [ 45%]
+tests\test_us09_independent.py ...................                       [100%]
+
+- generated xml file: E:\project\labreserve\.worktrees\integration\docs\evidence\us09\tests.xml -
+============================= 35 passed in 19.83s =============================

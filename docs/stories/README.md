@@ -1,6 +1,6 @@
 # Story卡索引
 
-所有Story保持draft，BMAD对应backlog；负责人和复核人由冲刺状态统一维护。
+Story 状态以 `sprint-status.yaml` 为准。US-01、US-02、US-04、US-05、US-08、US-09、US-12 已进入 review，其余 Story 保持 draft/backlog；负责人和复核人由冲刺状态统一维护。
 
 | Story | 内容 | 负责人 | 复核人 | 卡片 |
 | --- | --- | --- | --- | --- |
