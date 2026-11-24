@@ -185,7 +185,11 @@ def test_cancel_form_is_post_with_csrf_and_named_route(owner, reservation):
     request = RequestFactory().get(cancel_url(reservation.pk))
     request.user = owner
 
-    content = render_to_string("booking/_cancel_form.html", {"slot": reservation}, request=request)
+    content = render_to_string(
+        "booking/_cancel_form.html",
+        {"slot": reservation, "can_cancel": True},
+        request=request,
+    )
 
     assert 'method="post"' in content
     assert "csrfmiddlewaretoken" in content

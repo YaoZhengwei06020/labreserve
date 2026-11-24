@@ -3,6 +3,7 @@ from django.core.exceptions import PermissionDenied
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.utils import timezone
 from django.views.decorators.http import require_GET, require_POST
 
 from apps.accounts.policy import is_admin
@@ -73,4 +74,13 @@ def reservation_detail(request, slot_id):
     )
     if slot.user_id != request.user.pk and not is_admin(request.user):
         raise PermissionDenied
-    return render(request, "booking/reservation_detail.html", {"slot": slot})
+    can_cancel = (
+        slot.user_id == request.user.pk
+        and slot.status == EquipmentSlot.Status.ACTIVE
+        and timezone.now() < slot.start_time
+    )
+    return render(
+        request,
+        "booking/reservation_detail.html",
+        {"slot": slot, "can_cancel": can_cancel},
+    )

@@ -11,19 +11,10 @@ from django.utils import timezone
 from apps.audit.models import OperationLog
 from apps.booking.models import EquipmentSlot
 from apps.booking.services import create_slot
-from apps.booking.views import reservation
 from apps.equipment.models import Equipment
 
 
-booking_urls = (
-    [
-        path("reservations/new/", reservation.create_reservation, name="create-reservation"),
-        path("reservations/", reservation.create_reservation_submit, name="create-reservation-submit"),
-        path("reservations/<int:slot_id>/", reservation.reservation_detail, name="reservation-detail"),
-    ],
-    "booking",
-)
-urlpatterns = [path("", include(booking_urls))]
+urlpatterns = [path("", include("apps.booking.urls"))]
 
 pytestmark = pytest.mark.django_db
 

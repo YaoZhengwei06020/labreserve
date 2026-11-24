@@ -7,6 +7,11 @@
     <h1 class="h2 mb-0">{{ equipment.name }}</h1>
     <div class="d-flex gap-2">
         <a class="btn btn-outline-secondary" href="{% url 'equipment:list' %}">返回列表</a>
+        {% if equipment.status == 'AVAILABLE' %}
+            <a class="btn btn-success" href="{% url 'booking:create-reservation' %}?equipment={{ equipment.pk }}">预约该设备</a>
+        {% else %}
+            <span class="btn btn-secondary disabled" aria-disabled="true">设备停用，暂不可预约</span>
+        {% endif %}
         {% if can_manage %}<a class="btn btn-primary" href="{% url 'equipment:edit' code=equipment.code %}">编辑设备</a>{% endif %}
     </div>
 </div>

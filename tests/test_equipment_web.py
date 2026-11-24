@@ -14,6 +14,7 @@ TEST_PASSWORD = "test-only-password"
 urlpatterns = [
     path("accounts/", include("apps.accounts.urls", namespace="accounts")),
     path("equipment/", include("apps.equipment.urls", namespace="equipment")),
+    path("", include("apps.booking.urls", namespace="booking")),
 ]
 
 pytestmark = pytest.mark.django_db

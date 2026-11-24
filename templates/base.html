@@ -12,6 +12,8 @@
         <a class="navbar-brand" href="{% url 'equipment:list' %}">LabReserve</a>
         <div class="d-flex align-items-center gap-3 text-white">
             {% if user.is_authenticated %}
+                <a class="btn btn-outline-light btn-sm" href="{% url 'equipment:list' %}">设备</a>
+                <a class="btn btn-outline-light btn-sm" href="{% url 'booking:create-reservation' %}">新建预约</a>
                 <span class="small">{{ user.username }}</span>
                 <form method="post" action="{% url 'accounts:logout' %}" class="m-0">
                     {% csrf_token %}

@@ -1,4 +1,4 @@
-{% if slot.kind == "RESERVATION" and slot.status == "ACTIVE" and slot.user_id == user.pk %}
+{% if can_cancel %}
 <form method="post"
       action="{% url 'booking:cancel-reservation' slot_id=slot.pk %}"
       class="mt-4 border-top pt-4"
