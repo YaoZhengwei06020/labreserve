@@ -1,7 +1,7 @@
 # BMAD development_status与项目Story元数据同源；draft对应未就绪的backlog。
 schema_version: 1
 project: LabReserve
-updated_at: '2026-11-11'
+updated_at: '2026-11-24'
 baseline_status: proposed
 team:
   coordinator: 姚政伟
@@ -43,13 +43,15 @@ stories:
     epic: E-01
     sprint: sprint-1
     points: 3
-    status: draft
+    status: review
     owner: 郑焰
     reviewer: 姚政伟
     requirements:
     - FR-01
     card: docs/stories/1-1-login-and-logout.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/acceptance-summary.md
+    - docs/evidence/integration/tests.xml
     review:
       status: pending
       approved_by: null
@@ -59,13 +61,15 @@ stories:
     epic: E-01
     sprint: sprint-1
     points: 3
-    status: draft
+    status: review
     owner: 郑焰
     reviewer: 姚政伟
     requirements:
     - FR-02
     card: docs/stories/1-2-role-access.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/acceptance-summary.md
+    - docs/evidence/integration/tests.xml
     review:
       status: pending
       approved_by: null
@@ -91,13 +95,15 @@ stories:
     epic: E-02
     sprint: sprint-1
     points: 3
-    status: draft
+    status: review
     owner: 郑焰
     reviewer: 姚政伟
     requirements:
     - FR-04
     card: docs/stories/2-1-equipment-list-detail.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/acceptance-summary.md
+    - docs/evidence/integration/tests.xml
     review:
       status: pending
       approved_by: null
@@ -107,13 +113,15 @@ stories:
     epic: E-02
     sprint: sprint-1
     points: 3
-    status: draft
+    status: review
     owner: 郑焰
     reviewer: 姚政伟
     requirements:
     - FR-05
     card: docs/stories/2-2-equipment-create-edit.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/acceptance-summary.md
+    - docs/evidence/integration/tests.xml
     review:
       status: pending
       approved_by: null
@@ -155,14 +163,16 @@ stories:
     epic: E-03
     sprint: sprint-1
     points: 5
-    status: draft
+    status: review
     owner: 刘昊文
     reviewer: 罗永煌
     requirements:
     - FR-08
     - FR-10
     card: docs/stories/3-2-create-reservation.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/acceptance-summary.md
+    - docs/evidence/integration/tests.xml
     review:
       status: pending
       approved_by: null
@@ -172,14 +182,17 @@ stories:
     epic: E-03
     sprint: sprint-1
     points: 8
-    status: draft
+    status: review
     owner: 刘昊文
     reviewer: 罗永煌
     requirements:
     - FR-09
     - FR-10
     card: docs/stories/3-3-concurrent-reservation.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/tests.xml
+    - docs/evidence/us09/acceptance-matrix.md
+    - docs/evidence/us09/tests.xml
     review:
       status: pending
       approved_by: null
@@ -221,13 +234,15 @@ stories:
     epic: E-04
     sprint: sprint-2
     points: 3
-    status: draft
+    status: review
     owner: 刘昊文
     reviewer: 罗永煌
     requirements:
     - FR-12
     card: docs/stories/4-2-cancel-reservation.md
-    acceptance_evidence: []
+    acceptance_evidence:
+    - docs/evidence/integration/acceptance-summary.md
+    - docs/evidence/integration/tests.xml
     review:
       status: pending
       approved_by: null
@@ -280,30 +295,30 @@ experiment_a:
   plan: docs/experiment-a/README.md
   result: null
 generated: 11-10-2026 22:31
-last_updated: 11-11-2026 01:02
+last_updated: 24-11-2026 11:24
 project_key: LabReserve
 tracking_system: file-system
 story_location: docs/stories
 development_status:
   epic-1: backlog
-  1-1-login-and-logout: backlog
-  1-2-role-access: backlog
+  1-1-login-and-logout: review
+  1-2-role-access: review
   1-3-current-user: backlog
   epic-1-retrospective: optional
   epic-2: backlog
-  2-1-equipment-list-detail: backlog
-  2-2-equipment-create-edit: backlog
+  2-1-equipment-list-detail: review
+  2-2-equipment-create-edit: review
   2-3-equipment-availability: backlog
   epic-2-retrospective: optional
   epic-3: backlog
   3-1-equipment-schedule: backlog
-  3-2-create-reservation: backlog
-  3-3-concurrent-reservation: backlog
+  3-2-create-reservation: review
+  3-3-concurrent-reservation: review
   3-4-maintenance-slots: backlog
   epic-3-retrospective: optional
   epic-4: backlog
   4-1-my-reservations: backlog
-  4-2-cancel-reservation: backlog
+  4-2-cancel-reservation: review
   4-3-manage-reservations: backlog
   epic-4-retrospective: optional
 action_items: []

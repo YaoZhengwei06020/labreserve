@@ -1,0 +1,22 @@
+LabReserve full integration acceptance environment
+
+Actual date: 2026-11-24
+Working directory: E:\project\labreserve\.worktrees\integration
+Branch: feat/integration-reservation-flow
+HEAD: 7b6af628d838a79d9e64086971aa1b9e2685deca
+Integrated code commit: a195203048cd2741038ab473ca3b312bc17b1379
+Workspace before evidence generation: no tracked-file changes; only this new evidence directory
+
+OS: Windows 11
+Python: 3.12.14
+Django: 5.2.19
+Database backend: django.db.backends.postgresql
+PostgreSQL: 17.11 (pg_version 170011)
+Database host: localhost
+Database port: 55432
+
+Command:
+POSTGRES_PORT=55432 ../../.venv/Scripts/python.exe -m pytest --junitxml=docs/evidence/integration/tests.xml
+
+Result: collected 146 items; 146 passed, 0 failed, 0 skipped; 68.45 seconds.
+The temporary PostgreSQL process was stopped after the run.
